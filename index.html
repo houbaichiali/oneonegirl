@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>totheoneandonlygirlilove</title>
+<meta name="description" content="A little journey made just for you…" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><text y=%2220%22 font-size=%2220%22>🌸</text></svg>" />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/animations.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+
+<!--
+To the one and only girl I love.
+Built with love.
+Ali ❤ Basma
+10.06.2025
+-->
+</head>
+<body>
+
+<canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+<!-- ============ SCENE 1 — INTRO ============ -->
+<section id="scene-intro" class="scene">
+  <div class="scene-inner">
+    <div class="intro-logo fade-in">totheoneandonlygirlilove</div>
+    <p class="intro-tagline">A little journey made just for you…</p>
+  </div>
+</section>
+
+<!-- ============ SCENE 2 — SECRET CODE ============ -->
+<section id="scene-code" class="scene" hidden>
+  <div class="scene-inner">
+    <div class="glass-card fade-in" style="text-align:center;">
+      <p class="eyebrow">Avant d'entrer</p>
+      <h2 class="scene-title">Un code, juste pour toi</h2>
+      <p class="scene-lede" style="margin: 0 auto 24px;">Tu sais quelle date compte le plus.</p>
+      <form id="code-form" class="code-form">
+        <input
+          id="code-input"
+          class="code-input"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          maxlength="8"
+          placeholder="••••••••"
+          aria-label="Code secret"
+        />
+        <button type="submit" class="btn btn--primary">Entrer</button>
+      </form>
+      <p class="code-hint">indice : JJMMAAAA</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 3 — FLORAL TRANSITION ============ -->
+<section id="scene-floral" class="scene" hidden>
+  <div class="scene-inner" style="text-align:center;">
+    <p class="display fade-in" style="font-size: 1.6rem; font-style: italic; color: var(--rosy-red);">
+      Entrons dans un souvenir…
+    </p>
+  </div>
+</section>
+
+<!-- ============ SCENE 4 — PUZZLE ============ -->
+<section id="scene-puzzle" class="scene" hidden>
+  <div class="scene-inner" style="text-align:center;">
+    <p class="eyebrow">Un souvenir à reconstituer</p>
+    <h2 class="scene-title">Remets les pièces en place</h2>
+    <div id="puzzle-board" aria-label="Puzzle 3 par 3"></div>
+
+    <div id="puzzle-polaroid" hidden style="margin-top: 40px;">
+      <div class="polaroid">
+        <img src="assets/images/childhood.jpg" alt="Photo d'enfance de vous deux" />
+        <p class="polaroid-caption">le tout premier souvenir</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 5 — LETTER ============ -->
+<section id="scene-letter" class="scene" hidden>
+  <div class="scene-inner" style="text-align:center;">
+    <p class="eyebrow">Pour toi</p>
+    <div class="envelope-wrap">
+      <div id="envelope" class="envelope glass-card--tight glass-card" role="button" tabindex="0" aria-label="Ouvrir l'enveloppe">
+        <div class="envelope-lid" aria-hidden="true">🌸</div>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: var(--ink-soft);">touche pour ouvrir</p>
+      </div>
+    </div>
+    <div class="glass-card fade-in" style="margin-top: 28px; text-align: left;">
+      <p id="letter-paper" class="letter-paper"></p>
+    </div>
+    <button id="letter-continue" class="btn btn--ghost" style="margin-top: 28px;">Continuer</button>
+  </div>
+</section>
+
+<!-- ============ SCENE 6 — PLAYLIST ============ -->
+<section id="scene-playlist" class="scene" hidden>
+  <div class="scene-inner">
+    <p class="eyebrow" style="text-align:center;">Notre bande-son</p>
+    <h2 class="scene-title" style="text-align:center;">Ce qu'on écoutait</h2>
+    <div id="spotify-banner" style="margin-top: 24px;"></div>
+    <div id="spotify-tracks" class="track-grid"></div>
+    <div style="text-align:center; margin-top: 32px;">
+      <button id="playlist-continue" class="btn btn--primary">Continuer</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 7 — COUNTER ============ -->
+<section id="scene-counter" class="scene" hidden>
+  <div class="scene-inner">
+    <div class="glass-card fade-in" style="text-align:center;">
+      <p class="eyebrow">Depuis le 10 juin 2025</p>
+      <h2 class="scene-title">Le temps, compté</h2>
+      <div class="counter-grid">
+        <div class="counter-unit"><div class="value" id="cnt-years">0</div><div class="label">ans</div></div>
+        <div class="counter-unit"><div class="value" id="cnt-months">0</div><div class="label">mois</div></div>
+        <div class="counter-unit"><div class="value" id="cnt-days">0</div><div class="label">jours</div></div>
+        <div class="counter-unit"><div class="value" id="cnt-hours">00</div><div class="label">heures</div></div>
+      </div>
+      <div class="counter-grid" style="margin-top: 12px;">
+        <div class="counter-unit"><div class="value" id="cnt-minutes">00</div><div class="label">min</div></div>
+        <div class="counter-unit"><div class="value" id="cnt-seconds">00</div><div class="label">sec</div></div>
+        <div class="counter-unit" style="grid-column: span 2;"><div class="value" id="cnt-ms">000</div><div class="label">millisecondes</div></div>
+      </div>
+      <button id="counter-continue" class="btn btn--primary" style="margin-top: 32px;">Continuer</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 8 — REPLY FORM ============ -->
+<section id="scene-reply" class="scene" hidden>
+  <div class="scene-inner">
+    <div class="glass-card fade-in">
+      <p class="eyebrow" style="text-align:center;">À ton tour</p>
+      <h2 class="scene-title" style="text-align:center;">Écris-lui quelque chose</h2>
+      <form id="reply-form" style="margin-top: 24px;">
+        <input type="text" name="name" value="Basma" hidden />
+        <!-- honeypot, hidden from real visitors -->
+        <input type="text" name="website" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off" />
+        <textarea name="message" class="reply-textarea" placeholder="Écris ici…" required></textarea>
+        <div style="text-align:center; margin-top: 20px;">
+          <button type="submit" class="btn btn--primary">Envoyer</button>
+        </div>
+        <p id="form-status" class="form-status" style="text-align:center;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCENE 9 — OUTRO ============ -->
+<section id="scene-outro" class="scene" hidden>
+  <div class="scene-inner">
+    <img class="outro-photo" src="assets/images/final.jpg" alt="Photo de vous deux" onerror="this.src='assets/images/childhood.jpg'" />
+    <div class="outro-names">Ali ❤️ Basma</div>
+    <p class="outro-sub">The One And Only Girl I Love</p>
+    <p class="outro-brand">totheoneandonlygirlilove</p>
+    <p style="margin-top: 32px;">
+      <a href="#" id="restart-link" class="btn btn--ghost">revivre le voyage</a>
+    </p>
+  </div>
+</section>
+
+<script src="js/letter-data.js"></script>
+<script src="js/flowers.js"></script>
+<script src="js/puzzle.js"></script>
+<script src="js/counter.js"></script>
+<script src="js/spotify.js"></script>
+<script src="js/music.js"></script>
+<script src="js/transition.js"></script>
+<script src="js/eastereggs.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
